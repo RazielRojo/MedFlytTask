@@ -55,7 +55,6 @@ function useDashboard(params: { year: number }) {
         return axios
             .get<unknown>(endpoint(`reports/${params.year}`))
             .then((response) => {
-                console.log(response);
                  if (!resType.is(response.data)) {
                      console.error(PathReporter.report(resType.decode(response.data)).join(", "));
                      throw new Error("Error");
